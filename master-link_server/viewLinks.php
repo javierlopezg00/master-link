@@ -15,8 +15,10 @@ $method = $_SERVER['REQUEST_METHOD'];
     session_start();    
     $mysqli->set_charset('utf8');
 
+    $tipoLink = $_GET ['tipoLink'];
+
     if ($method == 'GET'){
-    $result = mysqli_query($mysqli,"SELECT * FROM links WHERE tipo = 2;");
+    $result = mysqli_query($mysqli,"CALL linkView('$tipoLink')");
     } 
     
     if ($method == 'GET') {

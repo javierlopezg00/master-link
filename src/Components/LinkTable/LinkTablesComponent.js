@@ -22,6 +22,13 @@ const columns = [
 
 export default function LinkTablesComponent() {
   
+  const userTypesH = {
+    colaboradores:  "21bf72926eb2d9f1a233c4c679c1eb0f",
+    jefaturas:      "8ee6a9c17d367a41e87865a23134673f",
+    gerencia:      "b0533f6b23ac1923681bc620eb1caf7c",
+    administrador:  "f9d4049dd6a4dc35d40e5265954b2a46"
+}
+  
 //SELECT HANDLE CHANGE
   const [type, setType] = React.useState('');
 
@@ -35,7 +42,18 @@ export default function LinkTablesComponent() {
   React.useEffect(() => {
     axios.get("http://localhost/master-link/adminLinks.php")
       .then(response=>{
-        
+
+        response.data.forEach(element => {
+          if(element.tipo === userTypesH.colaboradores){
+            element.tipo = "Colaboradores";
+          }else if (element.tipo === userTypesH.administrador){
+            element.tipo = "Administrador";
+          }else if (element.tipo === userTypesH.jefaturas){
+            element.tipo ="Jefaturas";
+          }else if (element.tipo === userTypesH.gerencia){
+            element.tipo = "Gerencia";
+          }
+        });
         setRows(response.data);
         
       }).catch(error=>{
@@ -92,7 +110,6 @@ export default function LinkTablesComponent() {
       descripcion: data.get('descripcion'), 
       tipo: data.get('tipo'),
     }
-    console.log(dataEnviar);
     
     axios({
       method: 'put',
@@ -197,10 +214,10 @@ export default function LinkTablesComponent() {
                 value={type}
                 onChange={handleChange}
               >
-                <MenuItem value={1}>Colaboradores</MenuItem>
-                <MenuItem value={2}>Jefaturas</MenuItem>
-                <MenuItem value={3}>Gerencia</MenuItem>
-                <MenuItem value={4}>Administrador</MenuItem>
+                <MenuItem value={"21bf72926eb2d9f1a233c4c679c1eb0f"}>Colaboradores</MenuItem>
+                <MenuItem value={"8ee6a9c17d367a41e87865a23134673f"}>Jefaturas</MenuItem>
+                <MenuItem value={"b0533f6b23ac1923681bc620eb1caf7c"}>Gerencia</MenuItem>
+                <MenuItem value={"f9d4049dd6a4dc35d40e5265954b2a46"}>Administrador</MenuItem>
               </Select>
       </FormControl>
             </Grid>

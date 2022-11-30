@@ -56,7 +56,7 @@ export default function CreateUserButton() {
 
   return (
     <div style={{margin:"0 0 2% 0"}}>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen} style={{color: "#2f2f2f", borderColor: "#2f2f2f"}}>
         Crear nuevo usuario
       </Button>
 
@@ -116,10 +116,10 @@ export default function CreateUserButton() {
           name = "tipo"
 
         >
-          <MenuItem value={1}>Colaboradores</MenuItem>
-          <MenuItem value={2}>Jefaturas</MenuItem>
-          <MenuItem value={3}>Gerencia</MenuItem>
-          <MenuItem value={4}>Administrador</MenuItem>
+                <MenuItem value={"21bf72926eb2d9f1a233c4c679c1eb0f"}>Colaboradores</MenuItem>
+                <MenuItem value={"8ee6a9c17d367a41e87865a23134673f"}>Jefaturas</MenuItem>
+                <MenuItem value={"b0533f6b23ac1923681bc620eb1caf7c"}>Gerencia</MenuItem>
+                <MenuItem value={"f9d4049dd6a4dc35d40e5265954b2a46"}>Administrador</MenuItem>
         </Select>
       </FormControl>
             </Grid>
@@ -129,11 +129,12 @@ export default function CreateUserButton() {
             </Grid>
           
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} >Cancelar</Button>
+        <DialogActions >
+          <Button onClick={handleClose} style={{color: "#e10303"}}>Cancelar</Button>
           <Button
                 onClick={handleClose}
                 type="submit"
+                style={{color: "#2f2f2f"}}
             >
               Registrar
             </Button>
