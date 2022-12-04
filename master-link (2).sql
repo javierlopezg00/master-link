@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 01:19 AM
+-- Generation Time: Dec 04, 2022 at 11:14 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -57,7 +57,7 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`id`, `link`, `descripcion`, `tipo`) VALUES
-(5, 'https://www.youtube.com', 'Youtube', 'f9d4049dd6a4dc35d40e5265954b2a46'),
+(5, 'PruebaPruebas', 'Youtube', 'f9d4049dd6a4dc35d40e5265954b2a46'),
 (6, 'www.google.com', 'Google', 'b0533f6b23ac1923681bc620eb1caf7c'),
 (7, 'www.amazon.com', 'Amazon', '21bf72926eb2d9f1a233c4c679c1eb0f'),
 (8, 'www.jefatura.com', 'Jefatura', '8ee6a9c17d367a41e87865a23134673f');
@@ -83,7 +83,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nombre`, `apellido`, `usuario`, `password`, `tipo`) VALUES
 (10, 'admin', 'admin', 'admin', 'hola', 'f9d4049dd6a4dc35d40e5265954b2a46'),
-(14, 'admin2', 'admin2', 'ad', 'nueva', 'f9d4049dd6a4dc35d40e5265954b2a46');
+(16, 'Colaborador', 'Colaborador', 'Colaborador', 'hola', '21bf72926eb2d9f1a233c4c679c1eb0f');
 
 --
 -- Indexes for dumped tables
@@ -116,7 +116,7 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

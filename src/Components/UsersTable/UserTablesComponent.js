@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useState } from 'react';
-import { Box, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Box, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, InputLabel } from '@mui/material';
 
 const columns = [
   { id: 'id', label: 'ID', minWidth: 170 },
@@ -74,6 +74,7 @@ export default function UserTablesComponent() {
   const [selectedUser, setSelectedUser] = React.useState([]);
   function editUser(id){
     setSelectedUser(id);
+    console.log(selectedUser);
     handleClickOpen();
   }
   
@@ -187,51 +188,53 @@ const deleteUser = () => {
         
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
+              <label>Nombre:</label>
+                <input type="text"
                   autoComplete="given-name"
                   name="nombre"
                   required
                   fullWidth
-                  id="nombre"
+                  class="editInput"
                   autoFocus
                   helperText="Nombre"
+                  defaultValue={selectedUser.nombre}
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
+                <label>Apellido: </label>
+                <input type="text"
                   fullWidth
-                  id="apellido"
+                  class="editInput"
                   name="apellido"
                   autoComplete="family-name"
                   helperText="Apellido"
+                  defaultValue={selectedUser.apellido}
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
+                <label>Usuario:</label>
+                <input type="text"
                   required
                   fullWidth
-                  id="usuario"
+                  class="editInput"
                   name="usuario"
                   autoComplete="family-name"
                   helperText="Usuario"
+                  defaultValue={selectedUser.usuario}
                 />
-              </Grid>
-              <FormControl style={{margin:"2.9%"}} sx={{width: 1.7/4}}>
-          <InputLabel id="demo-simple-select-label">Tipo de Usuario</InputLabel>
-              <Select
+              <FormControl  sx={{width: 4/4}}>
+          <label>Tipo de Usuario</label>
+              <select
                 labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                class="editInput"
                 label="Tipo de Usuario"
                 name = "tipo"
                 value={type}
                 onChange={handleChange}
-              >
-                <MenuItem value={"21bf72926eb2d9f1a233c4c679c1eb0f"}>Colaboradores</MenuItem>
-                <MenuItem value={"8ee6a9c17d367a41e87865a23134673f"}>Jefaturas</MenuItem>
-                <MenuItem value={"b0533f6b23ac1923681bc620eb1caf7c"}>Gerencia</MenuItem>
-                <MenuItem value={"f9d4049dd6a4dc35d40e5265954b2a46"}>Administrador</MenuItem>
-              </Select>
+                >
+                <option value={"21bf72926eb2d9f1a233c4c679c1eb0f"}>Colaboradores</option>
+                <option value={"8ee6a9c17d367a41e87865a23134673f"}>Jefaturas</option>
+                <option value={"b0533f6b23ac1923681bc620eb1caf7c"}>Gerencia</option>
+                <option value={"f9d4049dd6a4dc35d40e5265954b2a46"}>Administrador</option>
+              </select>
       </FormControl>
+                </Grid>
             </Grid>
             <Grid container justifyContent="flex-end">
               <Grid item>
@@ -241,11 +244,12 @@ const deleteUser = () => {
             
           
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} >Cancelar</Button>
+        <DialogActions >
+          <Button onClick={handleClose} style={{color:'black'}}>Cancelar</Button>
           <Button
                 onClick={handleClose}
                 type="submit"
+                style={{color:'black'}}
             >
               Editar
             </Button>
@@ -256,6 +260,7 @@ const deleteUser = () => {
         <Button
                 onClick={deleteUser}
                 type="submit"
+                style={{color:'red'}}
             >
               Eliminar
             </Button>

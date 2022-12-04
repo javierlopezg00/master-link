@@ -2,5 +2,9 @@
   text-align: center;
 }
 
-
-
+.editInput{
+  border-radius: 4px;
+  height: 2em;
+  border: 1px solid #ccc;
+  width: 200%;
+}
